@@ -1,0 +1,358 @@
+:host{
+    font-family: 'Inter', sans-serif;
+}
+h1{
+    font-size: 60px;
+    margin: 0px;
+}
+#text1{
+    font-style: normal;
+    font-size: 24px;
+    margin: 0px;
+}
+.login-btn-mobile {
+
+    display: none;
+
+}
+
+#createPost-container {
+    width: 926px;
+    height: 672px;
+    margin: auto;
+    display: flex;
+    border-radius: 44px;
+    background: radial-gradient(48.68% 55.36% at 56.7% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(192, 109, 255, 0.24) 100%), #5267EE;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+#createPost-info{
+    width: 50%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 45px;
+    gap: 20px;
+}
+#createPost-carrousel{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#carrousel-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+#text-carrousel{
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+#createPost-carrousel span {
+    font-size: 60px; 
+    color: white; 
+    cursor: pointer; 
+    transition: color 0.3s ease;
+    user-select: none;
+}
+#createPost-carrousel span:hover {
+    color: rgb(118, 118, 118); 
+}
+
+/* Swiper Container */
+/* Carrusel */
+.swiper-container {
+    width: 248px;
+    height: 248px;
+    overflow: hidden;
+    position: relative;
+    background-color: #2A2A2A;
+    border: 4px solid white;
+    border-radius: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.swiper-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.login-btn-mobile {
+
+    display: none;
+
+}
+
+.forgot-row-mobile {
+    display: none;
+}
+
+
+
+form {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 16px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 355px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+}
+
+input::placeholder {
+    color: #cfcfff;
+    opacity: 1;
+}
+
+.forgot-row {
+    margin-right: 82px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.forgot-link {
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+
+    width: 241px;
+    padding: 12px 57px;
+    background: #C06DFF;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 24px;
+    margin: 16px;
+    cursor: pointer;
+    margin-left: 60px;
+
+
+}
+
+.login-btn:hover {
+    background: #ac52f1;
+}
+
+
+
+.login-title {
+
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0px;
+    font-size: 48px;
+}
+
+.welcome-text {
+    color: #FFFFFF;
+    text-align: left;
+    opacity: 0.7;
+    font-size: 13px;
+    margin: 0px;
+
+}
+
+@media (max-width: 480px) {
+    #createPost-container {
+        flex-direction: column;
+        width: 95%;
+        height: auto; 
+        margin-top: 20px; 
+        margin-bottom: 20px; 
+        border-radius: 20px; 
+        padding: 25px 0; 
+    }
+
+    #createPost-info {
+        width: 100%; 
+        margin-left: 0; 
+        padding: 0 20px; 
+        gap: 10px;
+    }
+
+    #createPost-carrousel {
+        width: 100%; 
+        padding: 20px 0; 
+        gap: 15px; 
+    }
+
+    #carrousel-container {
+        gap: 15px; 
+    }
+
+    #createPost-carrousel span {
+        font-size: 40px; 
+    }
+
+    .swiper-container {
+        width: 200px; 
+        height: 200px; 
+        border-width: 2px;
+    }
+
+    form {
+        width: 100%; 
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: calc(100% - 24px); 
+    }
+
+
+    .login-title {
+        font-size: 36px; 
+    }
+
+    .welcome-text {
+        font-size: 12px; 
+        margin-bottom: 10px; 
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    #createPost-container {
+        width: 84%; 
+        padding: 15px 0; 
+        margin-left: 24px;
+        margin-top: 80px;
+        border-radius: 50px;
+        padding-top: 55px;
+        margin-left: 35px;
+        
+    }
+
+    #createPost-info {
+        margin-left: 5px;
+        padding: 0 15px; 
+        gap: 8px; 
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: calc(88% - 30px); 
+        padding: 15px;
+    }
+
+    
+
+    .forgot-row {
+        
+        margin-left: -8px;
+    }
+
+    .login-title {
+        font-size: 32px; 
+    }
+
+    .welcome-text {
+        font-size: 14px; 
+        margin-bottom: 8px; 
+    }
+
+    .swiper-slide img {
+        max-width: 85%;
+        max-height: 85%;
+        object-fit: contain;
+    }
+
+    .login-btn {
+        width: 60%;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        background: #C06DFF;
+        color: #FFFFFF;
+        font-weight: 700;
+        border: none;
+        border-radius: 24px;
+        cursor: pointer;
+        display: block;
+    }
+
+    .forgot-row {
+        display: none;
+    }
+
+    .forgot-row-mobile {
+        display: flex;
+        align-items: center;
+        padding-bottom: 20px;
+        margin-right: 0;
+        justify-content: center;
+        margin-bottom: 0;
+        color: #fff;
+    }
+
+    .forgot-row-mobile a.forgot-link {
+        color: #FFFFFF;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .forgot-row-mobile a.forgot-link:hover {
+        text-decoration: underline;
+    }
+}
