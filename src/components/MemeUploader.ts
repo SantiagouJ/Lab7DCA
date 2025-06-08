@@ -22,23 +22,28 @@ export class MemeUploader extends HTMLElement {
             <style>
                 :host {
                     display: block;
-                    padding: 20px;
-                    background: #f5f5f5;
-                    border-radius: 8px;
-                    margin: 20px 0;
+                    padding: 2rem;
+                    background: white;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
                 }
 
                 .upload-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 15px;
+                    gap: 1.5rem;
                     align-items: center;
+                    max-width: 600px;
+                    margin: 0 auto;
                 }
 
-                .file-input-container {
-                    position: relative;
+                .file-input-container,
+                button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 100%;
-                    max-width: 300px;
+                    max-width: 400px;
                 }
 
                 input[type="file"] {
@@ -47,69 +52,111 @@ export class MemeUploader extends HTMLElement {
 
                 .custom-file-input {
                     display: inline-block;
-                    padding: 12px 24px;
-                    background: #4CAF50;
+                    width: 100%;
+                    padding: 1.2rem 2rem;
+                    background: linear-gradient(135deg, #2196F3, #1976D2);
                     color: white;
-                    border-radius: 4px;
+                    border-radius: 8px;
                     cursor: pointer;
                     text-align: center;
-                    transition: background 0.3s;
+                    transition: all 0.3s ease;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    box-shadow: 0 4px 6px rgba(33, 150, 243, 0.2);
                 }
 
                 .custom-file-input:hover {
-                    background: #45a049;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 12px rgba(33, 150, 243, 0.3);
+                }
+
+                .custom-file-input:active {
+                    transform: translateY(0);
                 }
 
                 progress {
                     width: 100%;
-                    height: 20px;
-                    border-radius: 10px;
+                    height: 8px;
+                    border-radius: 4px;
                     display: none;
+                    background: #f0f0f0;
+                    overflow: hidden;
                 }
 
                 progress::-webkit-progress-bar {
                     background-color: #f0f0f0;
-                    border-radius: 10px;
+                    border-radius: 4px;
                 }
 
                 progress::-webkit-progress-value {
-                    background-color: #4CAF50;
-                    border-radius: 10px;
+                    background: linear-gradient(90deg, #2196F3, #4CAF50);
+                    border-radius: 4px;
+                    transition: width 0.3s ease;
                 }
 
                 button {
-                    padding: 12px 24px;
-                    background: #2196F3;
+                    width: 100%;
+                    max-width: 400px;
+                    padding: 1.2rem 2rem;
+                    background: linear-gradient(135deg, #4CAF50, #45a049);
                     color: white;
                     border: none;
-                    border-radius: 4px;
+                    border-radius: 8px;
                     cursor: pointer;
-                    transition: background 0.3s;
+                    transition: all 0.3s ease;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    box-shadow: 0 4px 6px rgba(76, 175, 80, 0.2);
                 }
 
                 button:hover {
-                    background: #1976D2;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+                }
+
+                button:active {
+                    transform: translateY(0);
                 }
 
                 button:disabled {
                     background: #ccc;
                     cursor: not-allowed;
+                    transform: none;
+                    box-shadow: none;
                 }
 
                 .error-message {
                     color: #f44336;
-                    margin-top: 10px;
+                    margin-top: 1rem;
                     display: none;
+                    padding: 1rem;
+                    background: rgba(244, 67, 54, 0.1);
+                    border-radius: 8px;
+                    text-align: center;
+                    font-weight: 500;
+                }
+
+                @media (max-width: 768px) {
+                    :host {
+                        padding: 1.5rem;
+                    }
+
+                    .custom-file-input,
+                    button {
+                        padding: 1rem 1.5rem;
+                    }
                 }
             </style>
 
             <div class="upload-container">
                 <div class="file-input-container">
                     <input type="file" id="memeInput" accept="image/*,video/*" multiple>
-                    <label for="memeInput" class="custom-file-input">Select Memes</label>
+                    <label for="memeInput" class="custom-file-input">Select Memes to Upload</label>
                 </div>
                 <progress id="uploadProgress" value="0" max="100"></progress>
-                <button id="uploadButton" disabled>Upload Memes</button>
+                <button id="uploadButton" disabled>Upload Selected Memes</button>
                 <div id="errorMessage" class="error-message"></div>
             </div>
         `;

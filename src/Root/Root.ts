@@ -48,23 +48,61 @@ class Root extends HTMLElement {
             <style>
                 :host {
                     display: block;
-                    max-width: 1200px;
+                    max-width: 1400px;
                     margin: 0 auto;
-                    padding: 20px;
+                    padding: 2rem;
+                    min-height: 100vh;
+                    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
                 }
 
                 h1 {
                     text-align: center;
-                    color: #333;
-                    margin-bottom: 30px;
+                    color: #2c3e50;
+                    margin-bottom: 2rem;
+                    font-size: 3rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                    position: relative;
+                    padding-bottom: 1rem;
+                }
+
+                h1::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 4px;
+                    background: linear-gradient(90deg, #2196F3, #4CAF50);
+                    border-radius: 2px;
                 }
 
                 meme-uploader {
-                    margin-bottom: 40px;
+                    margin-bottom: 3rem;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    border-radius: 12px;
+                    background: white;
                 }
 
                 meme-gallery {
-                    margin-top: 20px;
+                    margin-top: 2rem;
+                    background: white;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                    padding: 1rem;
+                }
+
+                @media (max-width: 768px) {
+                    :host {
+                        padding: 1rem;
+                    }
+
+                    h1 {
+                        font-size: 2rem;
+                    }
                 }
             </style>
 

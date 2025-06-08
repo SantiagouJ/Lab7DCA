@@ -31,13 +31,14 @@ export class MemeViewer extends HTMLElement {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background: rgba(0, 0, 0, 0.9);
+                    background: rgba(0, 0, 0, 0.85);
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     z-index: 1000;
                     opacity: 0;
-                    transition: opacity 0.3s;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    backdrop-filter: blur(5px);
                 }
 
                 .modal.active {
@@ -48,10 +49,16 @@ export class MemeViewer extends HTMLElement {
                     position: relative;
                     max-width: 90vw;
                     max-height: 90vh;
-                    background: #fff;
-                    border-radius: 8px;
+                    background: white;
+                    border-radius: 16px;
                     overflow: hidden;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                    transform: scale(0.95);
+                    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .modal.active .modal-content {
+                    transform: scale(1);
                 }
 
                 .media-container {
@@ -61,6 +68,7 @@ export class MemeViewer extends HTMLElement {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    background: #000;
                 }
 
                 .media-container img,
@@ -68,29 +76,37 @@ export class MemeViewer extends HTMLElement {
                     max-width: 100%;
                     max-height: 90vh;
                     object-fit: contain;
+                    border-radius: 8px;
                 }
 
                 .close-button {
                     position: absolute;
-                    top: 10px;
-                    right: 10px;
-                    background: rgba(0, 0, 0, 0.5);
+                    top: 1rem;
+                    right: 1rem;
+                    background: rgba(255, 255, 255, 0.1);
                     color: white;
                     border: none;
                     border-radius: 50%;
-                    width: 40px;
-                    height: 40px;
-                    font-size: 20px;
+                    width: 3rem;
+                    height: 3rem;
+                    font-size: 1.5rem;
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    transition: background 0.3s;
+                    transition: all 0.3s ease;
                     z-index: 1;
+                    backdrop-filter: blur(4px);
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 }
 
                 .close-button:hover {
-                    background: rgba(0, 0, 0, 0.8);
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: rotate(90deg);
+                }
+
+                .close-button:active {
+                    transform: scale(0.95) rotate(90deg);
                 }
 
                 .meme-info {
@@ -98,21 +114,50 @@ export class MemeViewer extends HTMLElement {
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    background: rgba(0, 0, 0, 0.7);
+                    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
                     color: white;
-                    padding: 10px;
-                    font-size: 14px;
+                    padding: 2rem 1.5rem 1.5rem;
+                    font-size: 1rem;
+                    transform: translateY(100%);
+                    transition: transform 0.3s ease;
+                }
+
+                .modal:hover .meme-info {
+                    transform: translateY(0);
                 }
 
                 .meme-name {
                     margin: 0;
-                    font-weight: bold;
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
                 }
 
                 .meme-date {
-                    margin: 5px 0 0;
+                    margin: 0.5rem 0 0;
                     opacity: 0.8;
-                    font-size: 12px;
+                    font-size: 0.9rem;
+                }
+
+                @media (max-width: 768px) {
+                    .modal-content {
+                        max-width: 95vw;
+                        max-height: 95vh;
+                    }
+
+                    .close-button {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        font-size: 1.2rem;
+                    }
+
+                    .meme-info {
+                        padding: 1.5rem 1rem 1rem;
+                    }
+
+                    .meme-name {
+                        font-size: 1.1rem;
+                    }
                 }
             </style>
 
